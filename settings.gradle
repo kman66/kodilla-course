@@ -1,0 +1,3 @@
+rootProject.name = 'kodilla-course-module6'
+include 'kodilla-testing'
+
