@@ -1,2 +1,2 @@
-# kodilla-module-6.1
-# this submodule explains practical usage of gradle
+# kodilla-module-6
+# this module show practical usage of gradle and explains how to write unit tests
