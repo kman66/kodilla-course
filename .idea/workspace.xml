@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d535e29f-1943-4da6-bff6-5de9730805e1" name="Default" comment="" />
+    <list default="true" id="d535e29f-1943-4da6-bff6-5de9730805e1" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/build/libs/kodilla-course-module6-1.0-SNAPSHOT.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/build/tmp/jar/MANIFEST.MF" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/kodilla-testing/build/classes/java/main/com/kodilla/testing/TestingMain.class" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/kodilla-testing/build/libs/kodilla-testing-1.0-SNAPSHOT.jar" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/kodilla-testing/build/tmp/jar/MANIFEST.MF" afterPath="" />
+    </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/.gradle/" />
     <ignored path="$PROJECT_DIR$/build/" />
@@ -826,12 +833,12 @@
       <option name="presentableId" value="Default" />
       <updated>1525955611631</updated>
       <workItem from="1525955616281" duration="2753000" />
-      <workItem from="1525958990631" duration="1085000" />
+      <workItem from="1525958990631" duration="2659000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3838000" />
+    <option name="totallyTimeSpent" value="5412000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="66" y="16" width="1865" height="1092" extended-state="6" />
