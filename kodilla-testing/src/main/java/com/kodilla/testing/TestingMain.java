@@ -5,6 +5,7 @@ import com.kodilla.testing.user.SimpleUser;
 
 public class TestingMain {
     public static void main(String[] args) {
+        /*
         System.out.println("Moduł 6: wprowadzenie do testowania oprogramowania");
         System.out.println("Test dla SimpleUser");
 
@@ -36,5 +37,6 @@ public class TestingMain {
         }else{
             System.out.println("Error!");
         }
+        */
     }
 }
