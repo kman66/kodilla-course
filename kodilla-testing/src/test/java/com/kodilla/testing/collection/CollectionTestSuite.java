@@ -5,11 +5,12 @@ import org.junit.*;
 import java.util.ArrayList;
 
 public class CollectionTestSuite {
-    private static OddNumbersExterminator oneo;
+    private static OddNumbersExterminator oddNumbersExterminatorObject;
 
     @BeforeClass
     public static void beforeClass(){
-        oneo = new OddNumbersExterminator("Test");
+        // Given
+        oddNumbersExterminatorObject = new OddNumbersExterminator("Test");
     }
 
     @Before
@@ -25,16 +26,22 @@ public class CollectionTestSuite {
     @Test
     public void testOddNumbersExterminatorEmptyList(){
         System.out.println("Testing case of empty list");
-        Assert.assertTrue("Empty list", oneo.exterminate(new ArrayList<Integer>()).isEmpty());
+        // When
+        ArrayList<Integer> resultList = oddNumbersExterminatorObject.exterminate(new ArrayList<Integer>());
+        // Then
+        Assert.assertTrue("Empty list", resultList.isEmpty());
     }
 
     @Test
     public void testOddNumbersExterminatorNormalList(){
         System.out.println("Testing normal case");
-        Assert.assertTrue("Normal case", checkList(oneo.exterminate(generateAndReturnTestList(1000))));
+        // When
+        ArrayList<Integer> resultList = oddNumbersExterminatorObject.exterminate(generateAndReturnTestList(1000));
+        // Then
+        Assert.assertTrue("Normal case", checkList(resultList));
     }
 
-    public ArrayList<Integer> generateAndReturnTestList(int size){
+    private ArrayList<Integer> generateAndReturnTestList(int size){
         ArrayList<Integer> tempList = new ArrayList<Integer>();
         for(Integer i=0; i<size; i++){
             tempList.add(i);
@@ -43,7 +50,7 @@ public class CollectionTestSuite {
         return tempList;
     }
 
-    public boolean checkList(ArrayList<Integer> list){
+    private boolean checkList(ArrayList<Integer> list){
         boolean isOdd = true;
         for(Integer i : list){
             if(i%2 != 0){
