@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
   <component name="ExternalSystem" externalSystem="GRADLE" externalSystemModuleGroup="kodilla-course-module6" externalSystemModuleVersion="1.0-SNAPSHOT" linkedProjectId=":kodilla-testing" linkedProjectPath="$MODULE_DIR$/../../kodilla-testing" rootProjectPath="$MODULE_DIR$/../.." />
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../kodilla-testing">
+      <excludeFolder url="file://$MODULE_DIR$/../../kodilla-testing/.gradle" />
+      <excludeFolder url="file://$MODULE_DIR$/../../kodilla-testing/build" />
+      <excludeFolder url="file://$MODULE_DIR$/../../kodilla-testing/out" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
 </module>
