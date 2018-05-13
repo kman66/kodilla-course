@@ -4,12 +4,9 @@ import org.junit.*;
 
 public class ShapeCollectorTestSuite {
     private static int testCounter = 0;
-    private static ShapeCollector shapeCollector;
 
     @BeforeClass
     public static void beforeAllTests(){
-        //Given
-        shapeCollector = new ShapeCollector("ShapeCollectorTest");
         System.out.println("This is the beginning of tests.");
     }
 
@@ -27,6 +24,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testAddCircle(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape circle = new Circle(4);
 
         //When
@@ -40,6 +38,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testAddSquare(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape square = new Square(4);
 
         //When
@@ -53,6 +52,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testAddTriangle(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape triangle = new Triangle(4, 3);
 
         //When
@@ -66,6 +66,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testRemoveCircleNotExisting(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape circle = new Circle(4);
 
         //When
@@ -78,6 +79,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testRemoveSquareNotExisting(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape square = new Square(4);
 
         //When
@@ -90,6 +92,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testRemoveTriangleNotExisting(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape triangle = new Triangle(4, 3);
 
         //When
@@ -102,6 +105,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testRemoveCircle(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape circle = new Circle(10);
         shapeCollector.addFigure(circle);
 
@@ -117,6 +121,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testRemoveSquare(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape square = new Square(10);
         shapeCollector.addFigure(square);
 
@@ -132,6 +137,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testRemoveTriangle(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape triangle = new Triangle(10, 5);
         shapeCollector.addFigure(triangle);
 
@@ -147,6 +153,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testGetCircle(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape circle = new Circle(15);
         shapeCollector.addFigure(circle);
 
@@ -162,6 +169,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testGetSquare(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape square = new Square(15);
         shapeCollector.addFigure(square);
 
@@ -177,6 +185,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testGetTriangle(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape triangle = new Triangle(15, 8);
         shapeCollector.addFigure(triangle);
 
@@ -192,6 +201,7 @@ public class ShapeCollectorTestSuite {
     @Test
     public void testFiguresQuantity(){
         //Given
+        ShapeCollector shapeCollector = new ShapeCollector("ShapeCollectorTest");
         Shape circle = new Circle(2);
         Shape square = new Square(6);
         Shape triangle = new Triangle(6,8);
