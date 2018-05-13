@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module version="4">
   <component name="ExternalSystem" externalSystem="GRADLE" externalSystemModuleGroup="kodilla-course-module6" externalSystemModuleType="sourceSet" externalSystemModuleVersion="1.0-SNAPSHOT" linkedProjectId=":kodilla-testing:main" linkedProjectPath="$MODULE_DIR$/../../../kodilla-testing" rootProjectPath="$MODULE_DIR$/../../.." />
+  <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
+    <output url="file://$MODULE_DIR$/../../../kodilla-testing/out/production/classes" />
+    <exclude-output />
+    <content url="file://$MODULE_DIR$/../../../kodilla-testing/src/main">
+      <sourceFolder url="file://$MODULE_DIR$/../../../kodilla-testing/src/main/java" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/../../../kodilla-testing/src/main/resources" type="java-resource" />
+    </content>
+    <orderEntry type="jdk" jdkName="9.0" jdkType="JavaSDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
 </module>
