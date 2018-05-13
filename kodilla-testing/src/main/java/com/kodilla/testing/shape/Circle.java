@@ -32,4 +32,11 @@ public class Circle implements Shape{
 
         return Objects.hash(radius);
     }
+
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "radius=" + radius +
+                '}';
+    }
 }
