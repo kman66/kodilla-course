@@ -14,14 +14,13 @@ public class StreamMain {
         expressionExecutor.executeExpression(10, 5, (a, b) -> a * b);
         expressionExecutor.executeExpression(10, 5, (a, b) -> a / b);
 
-        System.out.println("Calculating expressions with method references");
+        System.out.println("\nCalculating expressions with method references");
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::multiplyAByB);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
 
-        System.out.println();
-        System.out.println("Exercise 7.1");
+        System.out.println("\nExercise 7.1");
         PoemBeautifier poemBeautifier = new PoemBeautifier();
         poemBeautifier.beautify("test", text -> text.toUpperCase());
         poemBeautifier.beautify("test", text -> "ABC" + text + "ABC");
