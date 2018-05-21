@@ -6,7 +6,7 @@ import java.util.Set;
 
 public final class Continent {
     private final String name;
-    Set<Country> countries;
+    private Set<Country> countries;
 
     public Continent(final String name) {
         this.name = name;
