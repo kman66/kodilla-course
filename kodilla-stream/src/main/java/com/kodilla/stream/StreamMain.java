@@ -19,12 +19,5 @@ public class StreamMain {
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::addAToB);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::subBFromA);
         expressionExecutor.executeExpression(3, 4, FunctionalCalculator::divideAByB);
-
-        System.out.println("\nExercise 7.1");
-        PoemBeautifier poemBeautifier = new PoemBeautifier();
-        poemBeautifier.beautify("test", text -> text.toUpperCase());
-        poemBeautifier.beautify("test", text -> "ABC" + text + "ABC");
-        poemBeautifier.beautify("test", text -> text.replace('s', 'x'));
-        poemBeautifier.beautify("test", text -> text.concat(" done successfully"));
     }
 }
