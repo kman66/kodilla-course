@@ -27,7 +27,7 @@ public class SandStorageTestSuite {
         Assert.assertEquals(expectedSand, totalSand);
     }
 
-    public void stestGetSandBeansQuantityWithReduce(){
+    public void testGetSandBeansQuantityWithReduce(){
         //Given
         List<SandStorage> continents = new ArrayList<>();
         continents.add(new Europe());
