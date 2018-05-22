@@ -13,19 +13,28 @@ public class ForumTestSuite {
     @Test
     public void testAddForumUser(){
         //Given
-        ForumUser forumUser = new ForumUser(1, "steve", 'M',
+        ForumUser steve = new ForumUser(1, "steve", 'M',
+                10, 10, 10, 2000);
+        ForumUser jon = new ForumUser(2, "jon", 'M',
+                10, 10, 10, 2000);
+        ForumUser joanne = new ForumUser(3, "joanne", 'F',
                 10, 10, 10, 2000);
         Forum forum = new Forum();
 
         //When
-        forum.addForumUser(forumUser);
+        forum.addForumUser(steve, jon);
+        forum.addForumUser(joanne);
+
 
         //Then
-        Assert.assertEquals(1, forum.getList().size());
+        Assert.assertEquals(3, forum.getList().size());
+        Assert.assertTrue(forum.getList().contains(steve));
+        Assert.assertTrue(forum.getList().contains(jon));
+        Assert.assertTrue(forum.getList().contains(joanne));
     }
 
     @Test
-    public void testExercise73(){
+    public void testGetListUsingStream(){
         //Given
         ForumUser dylan = new ForumUser(1, "dylan", 'M',
                 10, 10, 10, 1990);
