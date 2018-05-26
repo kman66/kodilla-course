@@ -1,2 +1,6 @@
-# kodilla-module-6
-# this module show practical usage of gradle and explains how to write unit tests
+# kodilla-course
+# course shows practical usage of:
+# - gradle
+# - unit tests
+# - functional programming in java 8
+# - handling the exceptions
