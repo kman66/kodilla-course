@@ -1,17 +1,12 @@
 package com.kodilla.stream.portfolio;
 
-import jdk.vm.ci.meta.Local;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.math.BigDecimal;
-import java.time.Duration;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
@@ -155,50 +150,18 @@ public class BoardTestSuite {
         List<TaskList> inProgressTasks = new ArrayList<>();
         inProgressTasks.add(new TaskList("In progress"));
 
-        double noOfTasks = project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
-                .map(tl -> tl.getTasks().stream())
-                .count();
-
-        double sumOfDaysForTasks = IntStream(project.getTaskLists().stream()
+        List<Integer> listOfDaysWorkingOnTask = project.getTaskLists().stream()
                 .filter(inProgressTasks::contains)
                 .flatMap(tl -> tl.getTasks().stream())
-                .map(t -> t.getCreated())
-                .map(t -> LocalDate.now().minus(t)))
-                .;
-
-
-
-
-
-
-
-        /*
-        double totalNoOfDaysForTaskExecution = IntStream.range(0, ((int) project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
-                .flatMap(tl -> tl.getTasks().stream().toArray().length)
                 .map(t -> Period.between(t.getCreated(), LocalDate.now()).getDays())
-                .count()))
+                .collect(Collectors.toList());
+
+        double avgNoOfDaysWorkingOnTask = IntStream.range(0, listOfDaysWorkingOnTask.size())
+                .map(listOfDaysWorkingOnTask::get)
                 .average().orElse(0);
-        */
-
-
-        /*
-        * IntStream.range(0, numbers.length)
-                .map(n -> numbers[n])
-                .average().orElse(0);
-
-                long longTasks = project.getTaskLists().stream()
-                .filter(inProgressTasks::contains)
-                .flatMap(tl -> tl.getTasks().stream())
-                .map(t -> t.getCreated())
-                .filter(d -> d.compareTo(LocalDate.now().minusDays(10)) <= 0)
-                .count();
-        * */
-
-
 
         //Then
-        Assert.assertEquals(0, totalNoOfDaysForTaskExecution, 0);
+        Assert.assertEquals(3, listOfDaysWorkingOnTask.size());
+        Assert.assertEquals(10, avgNoOfDaysWorkingOnTask, 0);
     }
 }
