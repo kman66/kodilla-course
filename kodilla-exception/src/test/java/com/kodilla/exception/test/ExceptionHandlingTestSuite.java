@@ -1,9 +1,15 @@
 package com.kodilla.exception.test;
 
 import org.junit.Assert;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.ExpectedException;
 
 public class ExceptionHandlingTestSuite {
+
+    @Rule
+    public ExpectedException thrown = ExpectedException.none();
+
     @Test
     public void testHandleProbablyIWillThrowException(){
         //Given
