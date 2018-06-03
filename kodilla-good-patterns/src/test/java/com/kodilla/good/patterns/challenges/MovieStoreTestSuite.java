@@ -26,15 +26,17 @@ public class MovieStoreTestSuite {
         Assert.assertTrue(resultMap.get("AV").contains("Avengers"));
         Assert.assertTrue(resultMap.get("FL").contains("Błyskawica"));
         Assert.assertTrue(resultMap.get("FL").contains("Flash"));
+    }
 
-        System.out.println("Exercise 9.1 according to instructions:");
-        resultMap.entrySet().stream()
-                .flatMap(l -> l.getValue().stream())
-                .forEach(x -> System.out.print(x + "!"));
+    @Test
+    public void testGetMoviesAsString() {
+        //Given
+        MovieStore movieStore = new MovieStore();
 
-        System.out.println("\nMy version of exercise:");
-        resultMap.entrySet().stream()
-                .map(f -> f.getValue())
-                .forEach(x -> System.out.println(x));
+        //When
+        String result = movieStore.getMoviesAsString(movieStore.getMovies());
+
+        //Then
+        Assert.assertEquals("Żelazny Człowiek!Iron Man!Mściciele!Avengers!Błyskawica!Flash", result);
     }
 }

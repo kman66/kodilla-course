@@ -27,4 +27,11 @@ public class MovieStore {
 
         return booksTitlesWithTranslations;
     }
+
+    public String getMoviesAsString (Map<String, List<String>> mapOfMovies) {
+        return mapOfMovies.entrySet().stream()
+                .flatMap(l -> l.getValue().stream())
+                .reduce((x,y) -> x + "!" + y)
+                .orElse("");
+    }
 }
