@@ -26,8 +26,11 @@ public class Application {
         FlightDatabase.addFlight(gdanskWarszawa, krakowWarszawa, wroclawRzeszow,
                 warszawaGdansk, krakowRadom, radomKrakow, warszawaLodz, poznanWarszawa, radomGdansk);
 
-        QueryRequest queryRequest = new QueryRequest(krakow, gdansk);
-        FlightQueryService flightQueryService = new FlightQueryService(new QueryServiceConnectingFlightsImpl());
-        flightQueryService.processQuery(queryRequest);
+        QueryRequest queryRequest = new QueryRequest(krakow, gdansk, 0);
+        FlightQueryService flightQueryService = new FlightQueryService();
+        QueryDto queryDto = flightQueryService.processQuery(queryRequest);
+
+        queryDto.getListOfFlights().stream()
+                .forEach(System.out::println);
     }
 }
