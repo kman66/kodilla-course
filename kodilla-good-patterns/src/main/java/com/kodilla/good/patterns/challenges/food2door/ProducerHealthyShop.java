@@ -1,15 +1,15 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
 public class ProducerHealthyShop extends Producer {
-    public ProducerHealthyShop(String producerId, String name, String location) {
+    private ProductTypes notAcceptableProductType;
+
+    public ProducerHealthyShop(String producerId, String name, String location, ProductTypes notAcceptableProductType) {
         super(producerId, name, location);
+        this.notAcceptableProductType = notAcceptableProductType;
     }
 
     @Override
     protected boolean process(OrderRequest orderRequest) {
-        if (orderRequest.getProduct().getType().equals(ProductTypes.MIESO)) {
-            return false;
-        }
-        return true;
+        return !orderRequest.getProduct().getType().equals(notAcceptableProductType);
     }
 }

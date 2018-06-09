@@ -1,15 +1,15 @@
 package com.kodilla.good.patterns.challenges.food2door;
 
 public class ProducerGlutenFreeShop extends Producer {
-    public ProducerGlutenFreeShop(String producerId, String name, String location) {
+    private int minimalAmountOfProducts;
+
+    public ProducerGlutenFreeShop(String producerId, String name, String location, int minimalAmountOfProducts) {
         super(producerId, name, location);
+        this.minimalAmountOfProducts = minimalAmountOfProducts;
     }
 
     @Override
     protected boolean process(OrderRequest orderRequest) {
-        if (orderRequest.getAmountOfProducts() >= 10) {
-            return true;
-        }
-        return false;
+        return orderRequest.getAmountOfProducts() >= minimalAmountOfProducts;
     }
 }

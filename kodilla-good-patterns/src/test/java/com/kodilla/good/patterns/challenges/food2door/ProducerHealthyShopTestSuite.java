@@ -8,7 +8,7 @@ public class ProducerHealthyShopTestSuite {
     public void testProcessSuccessCase() {
         //Given
         OrderRequest orderRequest = ProducerHelpClass.generateOrderRequest(Headquarters.CHOJNICE, ProductTypes.OWOCE, 100);
-        Producer producer = new ProducerHealthyShop("3", "Healthy shop", Headquarters.CHELMNO.toString());
+        Producer producer = new ProducerHealthyShop("3", "Healthy shop", Headquarters.CHELMNO.toString(), ProductTypes.MIESO);
 
         //When
         boolean result = producer.process(orderRequest);
@@ -21,7 +21,7 @@ public class ProducerHealthyShopTestSuite {
     public void testProcessFailureCase() {
         //Given
         OrderRequest orderRequest = ProducerHelpClass.generateOrderRequest(Headquarters.CHOJNICE, ProductTypes.MIESO, 100);
-        Producer producer = new ProducerHealthyShop("2", "Healthy shop", Headquarters.CHELMNO.toString());
+        Producer producer = new ProducerHealthyShop("2", "Healthy shop", Headquarters.CHELMNO.toString(), ProductTypes.MIESO);
 
         //When
         boolean result = producer.process(orderRequest);

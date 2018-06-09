@@ -8,7 +8,7 @@ public class ProducerGlutenFreeShopTestSuite {
     public void testProcessSuccessCase() {
         //Given
         OrderRequest orderRequest = ProducerHelpClass.generateOrderRequest(Headquarters.CHELMNO, ProductTypes.OWOCE, 200);
-        Producer producer = new ProducerGlutenFreeShop("2", "Gluten free shop", Headquarters.SZCZAWNICA.toString());
+        Producer producer = new ProducerGlutenFreeShop("2", "Gluten free shop", Headquarters.SZCZAWNICA.toString(), 10);
 
         //When
         boolean result = producer.process(orderRequest);
@@ -21,7 +21,7 @@ public class ProducerGlutenFreeShopTestSuite {
     public void testProcessFailureCase() {
         //Given
         OrderRequest orderRequest = ProducerHelpClass.generateOrderRequest(Headquarters.SZCZAWNICA, ProductTypes.OWOCE, 9);
-        Producer producer = new ProducerGlutenFreeShop("2", "Gluten free shop", Headquarters.SZCZAWNICA.toString());
+        Producer producer = new ProducerGlutenFreeShop("2", "Gluten free shop", Headquarters.SZCZAWNICA.toString(), 10);
 
         //When
         boolean result = producer.process(orderRequest);

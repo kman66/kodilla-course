@@ -8,7 +8,7 @@ public class ProductOrderServiceTestSuite {
     public void testProcessOrderSuccessCase() {
         //Given
         OrderRequest orderRequest = ProducerHelpClass.generateOrderRequest(Headquarters.CHOJNICE, ProductTypes.WARZYWA, 100);
-        Producer producer = new ProducerHealthyShop("3", "Healthy shop", Headquarters.SZCZAWNICA.toString());
+        Producer producer = new ProducerHealthyShop("3", "Healthy shop", Headquarters.SZCZAWNICA.toString(), ProductTypes.MIESO);
         Store store = new Store("1", "Tesco");
         ProductOrderService productOrderService = new ProductOrderService(producer, store);
 
@@ -26,7 +26,7 @@ public class ProductOrderServiceTestSuite {
     public void testProcessOrderFailureCase() {
         //Given
         OrderRequest orderRequest = ProducerHelpClass.generateOrderRequest(Headquarters.CHOJNICE, ProductTypes.MIESO, 100);
-        Producer producer = new ProducerHealthyShop("3", "Healthy shop", Headquarters.SZCZAWNICA.toString());
+        Producer producer = new ProducerHealthyShop("3", "Healthy shop", Headquarters.SZCZAWNICA.toString(), ProductTypes.MIESO);
         Store store = new Store("1", "Tesco");
         ProductOrderService productOrderService = new ProductOrderService(producer, store);
 
