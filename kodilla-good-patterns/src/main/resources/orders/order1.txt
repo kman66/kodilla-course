@@ -1,4 +1,4 @@
 Order number: 1
-at: 2018-06-03T19:37:55.296836
+at: 2018-06-09T16:52:09.488717
 User{userId='1', name='John', surname='Smith'}
 [Toothpaste{id='1', name='Sensodyne', typeOfToothpaste='whitening', expiryDate=2025-12-01T12:00}, Game{id='2', name='Fallout 3', typeOfGame='rpg'}]
