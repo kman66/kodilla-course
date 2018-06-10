@@ -1,5 +1,6 @@
 package com.kodilla.good.patterns.challenges.flights;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -42,11 +43,24 @@ public class FlightQueryService {
                 .map(f -> f.getArrival())
                 .collect(Collectors.toList());
 
-        return FlightDatabase.getSetOfFlights().stream()
+        List<Flight> resultFlights = FlightDatabase.getSetOfFlights().stream()
                 .filter(f -> f.getArrival().equals(queryRequest.getToAirport())
                         || f.getDeparture().equals(queryRequest.getFromAirport()))
                 .filter(f -> potentialConnectingAirports.contains(f.getArrival())
                         || potentialConnectingAirports.contains(f.getDeparture()))
                 .collect(Collectors.toList());
+
+        boolean isFligthFrom = resultFlights.stream()
+                .map(f -> f.getDeparture())
+                .filter(f -> f.equals(queryRequest.getFromAirport()))
+                .collect(Collectors.toList()).isEmpty();
+
+        boolean isFlightTo = resultFlights.stream()
+                .map(f -> f.getArrival())
+                .filter(f -> f.equals(queryRequest.getToAirport()))
+                .collect(Collectors.toList()).isEmpty();
+
+
+        return (!isFligthFrom && !isFlightTo) ? resultFlights : new ArrayList<Flight>();
     }
 }
