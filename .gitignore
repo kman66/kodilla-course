@@ -3,4 +3,6 @@
 .gradle/
 out/
 build/
-kodilla-good-patterns/src/main/resources/orders/
+kodilla-good-patterns/src/main/resources/orders/order1.txt
+kodilla-good-patterns/src/main/resources/orders/order2.txt
+
