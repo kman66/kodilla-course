@@ -15,11 +15,11 @@ public final class Library {
         this.libraryDbController = libraryDbController;
     }
 
-    public void saveToDb() {
-        libraryDbController.saveData();
+    public String saveToDb() {
+        return libraryDbController.saveData();
     }
 
-    public void loadFromDb() {
-        libraryDbController.loadData();
+    public String loadFromDb() {
+        return libraryDbController.loadData();
     }
 }

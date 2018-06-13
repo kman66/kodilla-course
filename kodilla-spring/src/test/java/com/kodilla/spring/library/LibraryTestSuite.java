@@ -1,5 +1,6 @@
 package com.kodilla.spring.library;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -18,10 +19,12 @@ public class LibraryTestSuite {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
         Library library = context.getBean(Library.class);
+
         //When
-        library.loadFromDb();
+        String result = library.loadFromDb();
+
         //Then
-        //do nothing
+        Assert.assertEquals("Loading data from the database", result);
     }
 
     @Test
@@ -30,10 +33,12 @@ public class LibraryTestSuite {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
         Library library = context.getBean(Library.class);
+
         //When
-        library.saveToDb();
+        String result = library.saveToDb();
+
         //Then
-        //do nothing
+        Assert.assertEquals("Saving data to the database.", result);
     }
 
     @Test
@@ -42,7 +47,12 @@ public class LibraryTestSuite {
         ApplicationContext context =
                 new AnnotationConfigApplicationContext("com.kodilla.spring");
 
-        //When & Then
+        //When
+        int result = context.getBeanDefinitionCount();
+
+        //Then
+        Assert.assertEquals(44, result);
+
         System.out.println("===== Beans list: ==== >>");
         Arrays.stream(context.getBeanDefinitionNames())
                 .forEach(System.out::println);
