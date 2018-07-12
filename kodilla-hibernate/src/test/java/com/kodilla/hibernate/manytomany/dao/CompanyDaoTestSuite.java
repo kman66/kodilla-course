@@ -9,11 +9,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import java.util.List;
+
 @RunWith(SpringRunner.class)
 @SpringBootTest
 public class CompanyDaoTestSuite {
     @Autowired
     CompanyDao companyDao;
+    @Autowired
+    EmployeeDao employeeDao;
 
     @Test
     public void testSaveManyToMany(){
@@ -56,6 +60,58 @@ public class CompanyDaoTestSuite {
             companyDao.delete(softwareMachineId);
             companyDao.delete(dataMaestersId);
             companyDao.delete(greyMatterId);
+        } catch (Exception e) {
+            //do nothing
+        }
+    }
+
+    @Test
+    public void testCompanyAndEmployeeNamedQueries(){
+        //Given
+        Employee johnSmith = new Employee("John", "Smith");
+        Employee stephanieClarckson = new Employee("Stephanie", "Clarckson");
+        Employee lindaKovalsky = new Employee("Linda", "Kovalsky");
+
+        Company bigStar = new Company("Big star");
+        Company apple = new Company("Apple");
+        Company dell = new Company("Dell");
+
+        bigStar.getEmployees().add(johnSmith);
+        apple.getEmployees().add(stephanieClarckson);
+        apple.getEmployees().add(lindaKovalsky);
+        dell.getEmployees().add(johnSmith);
+        dell.getEmployees().add(lindaKovalsky);
+
+        johnSmith.getCompanies().add(bigStar);
+        johnSmith.getCompanies().add(dell);
+        stephanieClarckson.getCompanies().add(apple);
+        lindaKovalsky.getCompanies().add(apple);
+        lindaKovalsky.getCompanies().add(dell);
+
+        companyDao.save(bigStar);
+        int bigStarId = bigStar.getId();
+        companyDao.save(apple);
+        int appleId = apple.getId();
+        companyDao.save(dell);
+        int dellId = dell.getId();
+
+        //When
+        List<Employee> employees = employeeDao.retrieveEmployeeWithName("Kovalsky");
+        String employeeName = employees.get(0).getLastname();
+        List<Company> companies = companyDao.retrieveCompanyWhichThreeFirstCharactersAre("App");
+        String companyName = companies.get(0).getName();
+
+        //Then
+        Assert.assertEquals(1, employees.size());
+        Assert.assertEquals(1, companies.size());
+        Assert.assertEquals("Kovalsky", employeeName);
+        Assert.assertEquals("Apple", companyName);
+
+        //CleanUp
+        try {
+            companyDao.delete(bigStar);
+            companyDao.delete(apple);
+            companyDao.delete(dell);
         } catch (Exception e) {
             //do nothing
         }
