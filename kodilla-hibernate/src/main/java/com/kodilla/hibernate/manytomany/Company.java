@@ -11,6 +11,10 @@ import java.util.List;
                 " WHERE LEFT(company_name, 3) LIKE ?;",
         resultClass = Company.class
 )
+@NamedQuery(
+        name = "Company.retrieveCompanyWithNameLike",
+        query = "FROM Company WHERE company_name LIKE CONCAT('%',:NAME,'%') ORDER BY company_name asc"
+)
 @Entity
 @Table(name = "COMPANIES")
 public class Company {
