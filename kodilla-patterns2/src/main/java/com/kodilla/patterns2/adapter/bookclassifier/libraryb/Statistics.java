@@ -2,6 +2,7 @@ package com.kodilla.patterns2.adapter.bookclassifier.libraryb;
 
 import java.util.Arrays;
 import java.util.Map;
+import java.util.stream.IntStream;
 
 public class Statistics implements BookStatistics {
 
@@ -9,21 +10,19 @@ public class Statistics implements BookStatistics {
     public int averagePublicationYear(Map<BookSignature, BookB> books) {
         if (books.size() == 0) return 0;
         int sum = 0;
-        for (Map.Entry<BookSignature, BookB> entry : books.entrySet()) {
-            sum += entry.getValue().getYearOfPublication();
-        }
+        sum = books.values().stream()
+                .mapToInt(b -> b.getYearOfPublication())
+                .sum();
         return sum / books.size();
     }
 
     @Override
     public int medianPublicationYear(Map<BookSignature, BookB> books) {
         if (books.size() == 0) return 0;
-        int[] years = new int[books.size()];
-        int n = 0;
-        for (Map.Entry<BookSignature, BookB> entry : books.entrySet()) {
-            years[n] = entry.getValue().getYearOfPublication();
-            n++;
-        }
+        int[] years;
+        years = books.values().stream()
+                .mapToInt(b -> b.getYearOfPublication())
+                .toArray();
         Arrays.sort(years);
         if (years.length % 2 == 0) {
             return years[(int)(years.length / 2 + 0.5)];

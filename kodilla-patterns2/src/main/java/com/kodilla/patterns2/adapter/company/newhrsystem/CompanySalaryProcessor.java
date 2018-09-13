@@ -7,11 +7,10 @@ public class CompanySalaryProcessor implements SalaryProcessor {
 
     @Override
     public BigDecimal calculateSalaries(List<Employee> employees) {
-        BigDecimal sum = BigDecimal.ZERO;
-        for (Employee employee : employees) {
-            System.out.println(employee);
-            sum = sum.add(employee.getBaseSalary());
-        }
+        BigDecimal sum;
+        sum = employees.stream()
+                .map(e -> e.getBaseSalary())
+                .reduce(BigDecimal.ZERO, (res, current) -> res = res.add(current));
         return sum;
     }
 }

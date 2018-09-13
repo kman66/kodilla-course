@@ -1,5 +1,7 @@
 package com.kodilla.patterns2.adapter.company.oldhrsystem;
 
+import java.util.Optional;
+
 public class Workers {
     private String[][] workers = {
             {"542335513549","John","Smith"},
@@ -17,11 +19,9 @@ public class Workers {
             6200.00
     };
 
-    public String getWorker(int n) {
-        if (n > salaries.length) {
-            return "";
-        }
-        return workers[n][0] + ", " + workers[n][1] + ", " + workers[n][2] + ", " + salaries[n];
+    public String getWorker(int n) throws IndexOutOfBoundsException {
+        return Optional.of(workers[n][0] + ", " + workers[n][1] + ", " + workers[n][2] + ", " + salaries[n]).
+                orElseThrow(() -> new IndexOutOfBoundsException());
     }
 
     public String[][] getWorkers() {
