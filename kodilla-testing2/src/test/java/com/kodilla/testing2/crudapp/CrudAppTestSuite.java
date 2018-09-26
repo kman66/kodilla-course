@@ -9,10 +9,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
-import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.Random;
 import java.util.stream.Collectors;
@@ -106,10 +103,25 @@ public class CrudAppTestSuite {
         }
     }
 
+    private void deleteCrudAppTestTask(String taskName) throws InterruptedException {
+        while (!driver.findElement(By.xpath("//select[1]")).isDisplayed());
+        driver.findElements(By.xpath("//form[@class=\"datatable__row\"]")).stream()
+                .filter(anyForm ->
+                        anyForm.findElement(By.xpath(".//p[@class=\"datatable__field-value\"]"))
+                                .getText().equals(taskName))
+                .forEach(theForm -> {
+                    WebElement buttonDeleteCard =
+                            theForm.findElement(By.xpath(".//button[4]"));
+                    buttonDeleteCard.click();
+                });
+        driver.navigate().refresh();
+    }
+
     @Test
     public void shouldCreateTrelloCard() throws InterruptedException {
         String taskName = createCrudAppTestTask();
         sendTestTaskToTrello(taskName);
+        deleteCrudAppTestTask(taskName);
         Assert.assertTrue(checkTaskExistsInTrello(taskName));
     }
 }
